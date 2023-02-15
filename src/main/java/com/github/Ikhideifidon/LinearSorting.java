@@ -85,4 +85,76 @@ public class LinearSorting {
         }
         return new int[] {minimum, maximum};
     }
+
+    // Key-indexed counting
+    // In this given problem, a teacher has assigned some scores to the matriculation number of
+    // some students in a given test. The score ranges from 1 to 20 (inclusive). The teacher would
+    // like to sort these students based on their score. Sort these scores in a non-increasing order.
+    //
+    public static void keyIndexed(Item<String, Integer>[] items, int range) {
+        if (items == null) return;
+        int N = items.length;
+        int[] counts = new int[range + 1];
+        int i;
+
+        // Compute frequency counts
+        for (Item<String, Integer> item : items)
+            counts[item.value()]++;
+
+        // Transform counts to indices
+        for(i = 1; i < counts.length; i++)
+            counts[i] += counts[i - 1];
+
+        // Distribute the data
+        //noinspection unchecked
+        Item<String, Integer>[] aux = new Item[N];
+        for (i = N - 1; i >= 0; i--) {
+            counts[items[i].value()]--;
+            aux[counts[items[i].value()]] = items[i];
+        }
+        System.arraycopy(aux, 0, items, 0, N);
+    }
+
+    // Suppose that a highway engineer sets up a device that records the license plate numbers
+    // of all vehicles using a busy highway for a given period of time and wants to know the
+    // number of different vehicles that used the highway.
+    // LicencePlate = [
+    //                  4PGC938, 2IYE230, 3CIO720, 1ICK750, 1OHV845, 4JZY524, 1ICK750, 3CIO720,
+    //                  1OHV845, 1OHV845, 2RLA629, 2RLA629, 3ATW723
+    //                ]
+    // This is a classical string problem that can be solved by key-indexed count
+    // Assuming that the strings are each of length W.
+    // This leads to LSD String sort
+
+    public static void LSDStringSort(String[] strings, int W) {
+        if (strings == null) return;
+        int N = strings.length;
+        int range = 256;
+        String[] aux = new String[N];
+
+        for (int d = W - 1; d >= 0; d--) {
+            // Sort by key-indexed counting on the dth char
+
+            // Compute the frequency counts.
+            int[] counts = new int[range + 1];
+            for (String string : strings)
+                counts[string.charAt(d)]++;
+
+            // Transform counts to indices
+            for (int i = 1; i < counts.length; i++)
+                counts[i] += counts[i - 1];
+
+            // Distribute the data
+            for (int i = N - 1; i >= 0; i--) {
+                counts[strings[i].charAt(d)]--;
+                aux[counts[strings[i].charAt(d)]] = strings[i];
+            }
+
+            // Copy back
+            System.arraycopy(aux, 0, strings, 0, N);
+
+        }
+
+    }
+
 }

@@ -43,8 +43,28 @@ class ItemTest {
 
     @Test
     public void size() {
-        System.out.println(item.size());
+        System.out.println(item.count());
         System.out.println(Arrays.toString(items));
+    }
+
+    @Test
+    public void keyIndexedCount() {
+        // keyIndexed is a mutating method
+        // Make a clone of items
+        Item<String, Integer>[] cloned = items.clone();
+        LinearSorting.keyIndexed(cloned, UPPER_BOUND);
+        System.out.println(Arrays.toString(cloned));
+    }
+
+    @Test
+    public void LSDStringSort() {
+        String[] strings =
+                {
+                        "4PGC938", "2IYE230", "3CIO720", "1ICK750", "1OHV845", "4JZY524",
+                        "1ICK750", "3CIO720", "1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723"
+                };
+        LinearSorting.LSDStringSort(strings, strings[0].length());
+        System.out.println(Arrays.toString(strings));
     }
 
 }

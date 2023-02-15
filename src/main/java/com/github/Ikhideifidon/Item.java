@@ -22,7 +22,7 @@ public class Item<K, V> {
         return value;
     }
 
-    public int size() { return n; }
+    public int count() { return n; }
 
     @Override
     public String toString() {
