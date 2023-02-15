@@ -1,28 +1,13 @@
 package com.github.Ikhideifidon;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        Items<String, Integer> item1 = new Items<>("apple", 5);
-        Items<String, Integer> item2 = new Items<>("banana", 10);
+        Item<String, Integer> item = new Item<>("ENG1002138", 4);
 
-        System.out.println("Initial items:");
-        printInstances();
+        System.out.println(item.size());
+        System.out.println(item);
 
-        item1.add("cherry", 15);
-        item2.add("orange", 20);
-
-        System.out.println("After adding new items:");
-        printInstances();
-    }
-
-    private static void printInstances() {
-        Items<?, ?>[] instances = Items.getInstances();
-        for (Items<?, ?> instance : instances) {
-            if (instance == null) {
-                break;
-            }
-            System.out.println(instance.key() + ": " + instance.value());
-        }
-        System.out.println();
     }
 }
