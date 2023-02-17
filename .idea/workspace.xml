@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="22612280-223e-49dc-8adc-28b69d40f589" name="Changes" comment="Chapter8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676481502780</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Chapter8">
+      <created>1676654496441</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676654496441</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

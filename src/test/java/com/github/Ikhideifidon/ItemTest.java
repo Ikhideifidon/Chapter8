@@ -20,7 +20,7 @@ class ItemTest {
     private static Item<String, Integer>[] items;
     private static final String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
     private static int[] randomArray;
-    private static final int RANGE = 733;
+    private static final int RANGE = 729;
 
     private String getRandomString() {
         StringBuilder sb = new StringBuilder(FIXED_STRING_LENGTH);
