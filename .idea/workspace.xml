@@ -57,20 +57,7 @@
       <recent name="com.github.Ikhideifidon" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ItemTest.LSDStringSort">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.Main" />
-      <module name="Chapter8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ItemTest">
     <configuration name="ItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chapter8" />
       <extension name="coverage">
@@ -102,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemTest.pairs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ItemTest.countingSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chapter8" />
       <extension name="coverage">
         <pattern>
@@ -112,7 +99,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
       <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
-      <option name="METHOD_NAME" value="pairs" />
+      <option name="METHOD_NAME" value="countingSort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemTest.keyIndexedCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chapter8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
+      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
+      <option name="METHOD_NAME" value="keyIndexedCount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemTest.size" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chapter8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
+      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
+      <option name="METHOD_NAME" value="size" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,10 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ItemTest.LSDStringSort" />
         <item itemvalue="JUnit.ItemTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ItemTest.pairs" />
+        <item itemvalue="JUnit.ItemTest.size" />
+        <item itemvalue="JUnit.ItemTest.keyIndexedCount" />
+        <item itemvalue="JUnit.ItemTest.LSDStringSort" />
+        <item itemvalue="JUnit.ItemTest.countingSort" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676475626290</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Chapter8">
+      <created>1676481502780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676481502780</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

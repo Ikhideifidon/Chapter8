@@ -7,11 +7,11 @@ public class LinearSorting {
      *
      * @param A : Non-negative integer array
      */
-    public static int[] countingSort(int[] A) {
+    public static void countingSort(int[] A) {
         // A = [1, 0, 3, 1, 3, 1]
-        if (A == null) return null;
+        if (A == null) return;
         int n = A.length;
-        if (n <= 1) return A;
+        if (n <= 1) return;
         int[] min_max = range(A);
         int min = min_max[0];
         int max = min_max[1];
@@ -36,7 +36,7 @@ public class LinearSorting {
             C[A[i] - min]--;                            // Decrease the respective frequency.
             B[C[A[i] - min]] = A[i];
         }
-        return B;
+        System.arraycopy(B, 0, A, 0, n);
     }
 
     public static void radixSort(int[] A) {
@@ -98,20 +98,18 @@ public class LinearSorting {
         int i;
 
         // Compute frequency counts
-        for (Item<String, Integer> item : items)
-            counts[item.value()]++;
+        for (i = 0; i < N; i++)
+            counts[items[i].value() + 1]++;
 
         // Transform counts to indices
-        for(i = 1; i < counts.length; i++)
-            counts[i] += counts[i - 1];
+        for(i = 0; i < range; i++)
+            counts[i + 1] += counts[i];
 
         // Distribute the data
         //noinspection unchecked
         Item<String, Integer>[] aux = new Item[N];
-        for (i = N - 1; i >= 0; i--) {
-            counts[items[i].value()]--;
-            aux[counts[items[i].value()]] = items[i];
-        }
+        for (i = 0;  i < N; i++)
+            aux[counts[items[i].value()]++] = items[i];
         System.arraycopy(aux, 0, items, 0, N);
     }
 
@@ -127,6 +125,7 @@ public class LinearSorting {
     // This leads to LSD String sort
 
     public static void LSDStringSort(String[] strings, int W) {
+        // W is the size of each string in strings array.
         if (strings == null) return;
         int N = strings.length;
         int range = 256;
@@ -138,21 +137,18 @@ public class LinearSorting {
             // Compute the frequency counts.
             int[] counts = new int[range + 1];
             for (String string : strings)
-                counts[string.charAt(d)]++;
+                counts[string.charAt(d) + 1]++;
 
             // Transform counts to indices
-            for (int i = 1; i < counts.length; i++)
-                counts[i] += counts[i - 1];
+            for (int i = 0; i < range; i++)
+                counts[i + 1] += counts[i];
 
             // Distribute the data
-            for (int i = N - 1; i >= 0; i--) {
-                counts[strings[i].charAt(d)]--;
-                aux[counts[strings[i].charAt(d)]] = strings[i];
-            }
+            for (String string : strings)
+                aux[counts[string.charAt(d)]++] = string;
 
             // Copy back
             System.arraycopy(aux, 0, strings, 0, N);
-
         }
 
     }
