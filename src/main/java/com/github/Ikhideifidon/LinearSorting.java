@@ -91,25 +91,28 @@ public class LinearSorting {
     // some students in a given test. The score ranges from 1 to 20 (inclusive). The teacher would
     // like to sort these students based on their score. Sort these scores in a non-increasing order.
     //
-    public static void keyIndexed(Item<String, Integer>[] items, int range) {
+    public static void keyIndexed(Item<String, Integer>[] items) {
         if (items == null) return;
         int N = items.length;
-        int[] counts = new int[range + 1];
+        int[] min_max = getMinMax(items);
+        int min = min_max[0];
+        int max = min_max[1];
+        int[] counts = new int[max - min + 1];
         int i;
 
         // Compute frequency counts
         for (i = 0; i < N; i++)
-            counts[items[i].value() + 1]++;
+            counts[items[i].value() - min + 1]++;
 
         // Transform counts to indices
-        for(i = 0; i < range; i++)
+        for(i = 0; i < counts.length; i++)
             counts[i + 1] += counts[i];
 
         // Distribute the data
         //noinspection unchecked
         Item<String, Integer>[] aux = new Item[N];
         for (i = 0;  i < N; i++)
-            aux[counts[items[i].value()]++] = items[i];
+            aux[counts[items[i].value() - min]++] = items[i];
         System.arraycopy(aux, 0, items, 0, N);
     }
 
@@ -151,6 +154,19 @@ public class LinearSorting {
             System.arraycopy(aux, 0, strings, 0, N);
         }
 
+    }
+
+    private static int[] getMinMax(Item<String, Integer>[] items) {
+        int min = items[0].value();
+        int max = items[0].value();
+        for (int i = 1; i < items.length - 1; i++) {
+            if (items[i].value() > max)
+                max = items[i].value();
+
+            if(items[i].value() < min)
+                min = items[i].value();
+        }
+        return new int[]{min, max};
     }
 
 

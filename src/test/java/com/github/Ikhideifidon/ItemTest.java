@@ -53,7 +53,7 @@ class ItemTest {
         // Make a clone of items
         Item<String, Integer>[] cloned = items.clone();
         Arrays.sort(cloned);
-        LinearSorting.keyIndexed(items, UPPER_BOUND + 1);
+        LinearSorting.keyIndexed(items);
         Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(items));
     }
 
