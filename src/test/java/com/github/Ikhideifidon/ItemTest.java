@@ -1,6 +1,5 @@
 package com.github.Ikhideifidon;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,18 +18,6 @@ class ItemTest {
     private static Item<String, Integer> item;
     private static Item<String, Integer>[] items;
     private static final String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-    private static int[] randomArray;
-    private static final int RANGE = 729;
-
-    private String getRandomString() {
-        StringBuilder sb = new StringBuilder(FIXED_STRING_LENGTH);
-        for (int i = 0; i < FIXED_STRING_LENGTH; i++) {
-            int index = random.nextInt(chars.length());
-            char character = chars.charAt(index);
-            sb.append(character);
-        }
-        return sb.toString();
-    }
 
     @BeforeAll
     public void setUp() {
@@ -78,26 +65,43 @@ class ItemTest {
     public void countingSort() {
         // Generate 1635378 array of integers in the range of [5, 734)
         // N = 1635378 and k = 734. k = Ω(N). Counting sort is the best fit.
-        shuffle();
-        int[] cloned = randomArray.clone();
+        int[] A = new int[1_635_378];
+        int lowerBound = 5;
+        int upperBound = 734;
+        generateArray(A, lowerBound, upperBound);
+        int[] cloned = A.clone();
         Arrays.sort(cloned);
-        LinearSorting.countingSort(randomArray);
-        Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(randomArray));
-    }
-
-    private static void shuffle() {
-        randomArray = new int[1_635_378];
-        for (int i = 0; i < randomArray.length; i++) {
-            int num = random.nextInt(RANGE) + 5;                    // Range shift by 5.
-            randomArray[i] = num;
-        }
+        LinearSorting.countingSort(A);
+        Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(A));
     }
 
     @Test
     public void radixSort() {
-
+        int[] A = new int[1_000_00];
+        int lowerBound = 1102;
+        int upperBound = 83_292;
+        generateArray(A, lowerBound, upperBound);
+        int[] cloned = A.clone();
+        Arrays.sort(cloned);
+        LinearSorting.radixSort(A);
+        Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(A));
     }
 
+    // Utility Methods
+    private static void generateArray(int[] A, int lowerBound, int upperBound) {
+        for (int i = 0; i < A.length; i++) {
+            int num = random.nextInt(upperBound - lowerBound) + lowerBound;                    // Range shift by 5.
+            A[i] = num;
+        }
+    }
 
-
+    private String getRandomString() {
+        StringBuilder sb = new StringBuilder(FIXED_STRING_LENGTH);
+        for (int i = 0; i < FIXED_STRING_LENGTH; i++) {
+            int index = random.nextInt(chars.length());
+            char character = chars.charAt(index);
+            sb.append(character);
+        }
+        return sb.toString();
+    }
 }
