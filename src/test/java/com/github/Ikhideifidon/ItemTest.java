@@ -12,23 +12,34 @@ import java.util.Random;
 class ItemTest {
     private static final int DEFAULT_CAPACITY = 500;
     private static final int FIXED_STRING_LENGTH = 10;
+    private static final int MINIMUM_VARIABLE_STRING_LENGTH = 1;
+    private static final int MAXIMUM_VARIABLE_STRING_LENGTH = 21;
     private static final int UPPER_BOUND = 20;
     private static final int LOWER_BOUND = 1;
     private static final Random random = new Random(0);
     private static Item<String, Integer> item;
     private static Item<String, Integer>[] items;
+    private static String[] strings;
+    private static int[] randomArray;
     private static final String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     @BeforeAll
     public void setUp() {
         //noinspection unchecked
         items = new Item[DEFAULT_CAPACITY];
-        for (int i = 0; i < DEFAULT_CAPACITY; i++) {
-            String key = getRandomString();
-            Integer value = random.nextInt(UPPER_BOUND) + LOWER_BOUND;
-            item = new Item<>(key, value);                          // Compare by value.
-            items[i] = item;
-        }
+        getRandomItems(items);
+
+        int CAPACITY = 5000;
+        strings = new String[CAPACITY];
+        getVariableLengthRandomString(strings);
+
+
+        CAPACITY = 1_000_00;
+        randomArray = new int[CAPACITY];
+        int lowerBound = 1102;
+        int upperBound = 83_292;
+        generateArray(randomArray, lowerBound, upperBound);
+
     }
 
     @Test
@@ -77,14 +88,18 @@ class ItemTest {
 
     @Test
     public void radixSort() {
-        int[] A = new int[1_000_00];
-        int lowerBound = 1102;
-        int upperBound = 83_292;
-        generateArray(A, lowerBound, upperBound);
-        int[] cloned = A.clone();
+        int[] cloned = randomArray.clone();
         Arrays.sort(cloned);
-        LinearSorting.radixSort(A);
-        Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(A));
+        LinearSorting.radixSort(randomArray);
+        Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(randomArray));
+    }
+
+    @Test
+    public void MSDSort() {
+        String[] cloned = strings.clone();
+        Arrays.sort(cloned);
+        MSD.sort(strings);
+        Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(strings));
     }
 
     // Utility Methods
@@ -95,7 +110,9 @@ class ItemTest {
         }
     }
 
-    private String getRandomString() {
+
+    // Generate a fixed-length string array.
+    private String getFixedLengthRandomString() {
         StringBuilder sb = new StringBuilder(FIXED_STRING_LENGTH);
         for (int i = 0; i < FIXED_STRING_LENGTH; i++) {
             int index = random.nextInt(chars.length());
@@ -103,5 +120,35 @@ class ItemTest {
             sb.append(character);
         }
         return sb.toString();
+    }
+
+    // Generate a variable-length string array.
+    // minimum length = 1 and maximum length = 21.
+    private void getVariableLengthRandomString(String[] strings) {
+        if (strings ==  null)
+            //noinspection ConfusingArgumentToVarargsMethod,ConstantValue
+            throw new NullPointerException(String.format("%s" + "cannot be null", strings));
+        if (strings.length == 0)
+            return;
+
+        for (int i = 0; i < strings.length; i++) {
+            int count = random.nextInt(MAXIMUM_VARIABLE_STRING_LENGTH) + MINIMUM_VARIABLE_STRING_LENGTH;
+            StringBuilder sb = new StringBuilder(count);
+            while (count > 0) {
+                int j = random.nextInt(chars.length());
+                sb.append(chars.charAt(j));
+                count--;
+            }
+            strings[i] = sb.toString();
+        }
+    }
+
+    private void getRandomItems(Item<String, Integer>[] items) {
+        for (int i = 0; i < DEFAULT_CAPACITY; i++) {
+            String key = getFixedLengthRandomString();
+            Integer value = random.nextInt(UPPER_BOUND) + LOWER_BOUND;
+            item = new Item<>(key, value);                                      // Compare by value.
+            items[i] = item;
+        }
     }
 }

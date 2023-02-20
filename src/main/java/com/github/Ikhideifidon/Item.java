@@ -31,6 +31,7 @@ public class Item<K extends Comparable<K>, V extends Comparable<V>> implements C
         return value;
     }
 
+    @SuppressWarnings("unused")
     public void setCompareByKey(boolean compareByKey) { this.compareByKey = compareByKey; }
 
     public int count() { return n; }
