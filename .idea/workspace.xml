@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22612280-223e-49dc-8adc-28b69d40f589" name="Changes" comment="Chapter8">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +53,7 @@
       <recent name="com.github.Ikhideifidon" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ItemTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.Main" />
       <module name="Chapter8" />
@@ -135,8 +132,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ItemTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ItemTest" />
         <item itemvalue="JUnit.ItemTest.MSDSort" />
         <item itemvalue="JUnit.ItemTest.countingSort" />
         <item itemvalue="JUnit.ItemTest.keyIndexedCount" />
@@ -222,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676963371440</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Chapter8">
+      <created>1677001863164</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1677001863164</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
