@@ -97,15 +97,16 @@ public class LinearSorting {
         int[] min_max = getMinMax(items);
         int min = min_max[0];
         int max = min_max[1];
-        int[] counts = new int[max - min + 1];
+        // Integers in the range [1, max] inclusive.
+        int[] counts = new int[max - min + 2];
         int i;
 
         // Compute frequency counts
-        for (i = 0; i < N; i++)
+        for (i = 0; i < N; i++) {
             counts[items[i].value() - min + 1]++;
-
+        }
         // Transform counts to indices
-        for(i = 0; i < counts.length; i++)
+        for(i = 0; i < max; i++)
             counts[i + 1] += counts[i];
 
         // Distribute the data
@@ -159,7 +160,7 @@ public class LinearSorting {
     private static int[] getMinMax(Item<String, Integer>[] items) {
         int min = items[0].value();
         int max = items[0].value();
-        for (int i = 1; i < items.length - 1; i++) {
+        for (int i = 1; i < items.length; i++) {
             if (items[i].value() > max)
                 max = items[i].value();
 

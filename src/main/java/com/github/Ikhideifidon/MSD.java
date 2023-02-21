@@ -46,7 +46,7 @@ public class MSD {
     private static void insertionSort(String[] strings, int low, int high, int d) {
         for (int i = low; i <= high; i++) {
             int j = i;
-            while (j > low && less(strings[j], strings[j - 1], d)) {
+            while (j > low && greater(strings[j - 1], strings[j], d)) {
                 swap(strings, j, j - 1);
                 j--;
             }
@@ -59,8 +59,8 @@ public class MSD {
         strings[to] = temp;
     }
 
-    private static boolean less(String second, String first, int d) {
-        return second.substring(d).compareTo(first.substring(d)) < 0;
+    private static boolean greater(String first, String second, int d) {
+        return first.substring(d).compareTo(second.substring(d)) > 0;
     }
 
 
