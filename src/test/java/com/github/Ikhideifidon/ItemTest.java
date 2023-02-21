@@ -103,6 +103,7 @@ class ItemTest {
     }
 
     // Utility Methods
+    // Generate an n-length array within a specific bound
     private static void generateArray(int[] A, int lowerBound, int upperBound) {
         for (int i = 0; i < A.length; i++) {
             int num = random.nextInt(upperBound - lowerBound) + lowerBound;                    // Range shift by 5.

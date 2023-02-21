@@ -1,5 +1,9 @@
 package com.github.Ikhideifidon;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 public class LinearSorting {
     /**
      * Given an array of integers in the range of 0 and some value k,
@@ -170,6 +174,54 @@ public class LinearSorting {
         return new int[]{min, max};
     }
 
+    // Try this distribution function:
+    // index = (element - min) * numBuckets / (max - min + 1)
+    public static void bucketSort(float[] A) {
+        if (A == null || A.length == 0) return;
+        int N = A.length;
+        // Create an auxiliary array B
+        //noinspection unchecked
+        List<Float>[] B = new LinkedList[N];
+        List<Float> linkedList;
+        for (int i = 0; i < N; i++) {
+            linkedList = new LinkedList<>();
+            B[i] = linkedList;
+        }
+
+        for (float value : A) {
+            int j = (int) (N * value);
+            B[j].add(value);
+        }
+
+        for (int i = 0; i < N; i++) {
+            if (B[i].size() > 0)
+                insertionSort(B[i]);                // Built in Collections.sort() is also applicable
+        }
+
+        // Merge N sorted linked list
+        int i = 0;
+        for (int j = 0; j < N; j++) {
+            if (B[j] != null) {
+                List<Float> links = B[j];
+                for (Float link : links)
+                    A[i++] = link;
+            }
+        }
+    }
+
+    private static void insertionSort(List<Float> linkedList) {
+        for (int i = 0; i < linkedList.size(); i++) {
+            int j = i;
+            while (j > 0 && greater(linkedList.get(j - 1), linkedList.get(j))) {
+                Collections.swap(linkedList, j - 1, j);
+                j--;
+            }
+        }
+    }
+
+    private static boolean greater(float first, float second) {
+        return first > second;
+    }
 
 
 }

@@ -7,7 +7,8 @@
     <list default="true" id="22612280-223e-49dc-8adc-28b69d40f589" name="Changes" comment="Chapter8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/MSD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/MSD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,19 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.ItemTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.Main" />
+      <module name="Chapter8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chapter8" />
       <extension name="coverage">
@@ -119,29 +133,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemTest.radixSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chapter8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
-      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
-      <option name="METHOD_NAME" value="radixSort" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ItemTest" />
-        <item itemvalue="JUnit.ItemTest.keyIndexedCount" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ItemTest.MSDSort" />
         <item itemvalue="JUnit.ItemTest.countingSort" />
-        <item itemvalue="JUnit.ItemTest.radixSort" />
+        <item itemvalue="JUnit.ItemTest.keyIndexedCount" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676917921271</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Chapter8">
+      <created>1676963371440</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676963371440</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
