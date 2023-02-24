@@ -20,6 +20,7 @@ class ItemTest {
     private static Item<String, Integer> item;
     private static Item<String, Integer>[] items;
     private static String[] strings;
+    private static Dictionary  dictionary;
     private static int[] randomArray;
     private static final String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -105,6 +106,8 @@ class ItemTest {
         int upperBound = 83_292;
         generateArray(randomArray, lowerBound, upperBound);
 
+        String path = "src/main/resources/words_alpha.txt";
+        dictionary = new Dictionary(path);
     }
 
     @Test
@@ -165,6 +168,16 @@ class ItemTest {
         Arrays.sort(cloned);
         MSD.sort(strings);
         Assertions.assertEquals(Arrays.toString(cloned), Arrays.toString(strings));
+    }
+
+    @Test
+    public void topKFrequentTreeSet() {
+        List<String> list = dictionary.getRandomWords(5_000);
+        String[] randomWords = list.toArray(new String[0]);
+        // Write a code that generates k values from the range of 1 to the number of unique
+        // words in list (inclusive)
+        System.out.println(GeneralExercises.topKFrequentTreeSet(randomWords, 100));
+
     }
 
     // Utility Methods
