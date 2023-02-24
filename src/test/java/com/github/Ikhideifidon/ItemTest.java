@@ -60,6 +60,32 @@ class ItemTest {
             int index = random.nextInt(wordList.size());
             return wordList.get(index);
         }
+
+        private List<String> getRandomWords(int count) {
+            if (count <= 0) return new ArrayList<>();
+            List<String> result = new ArrayList<>();
+            for (int i = 0; i < count; i++)
+                result.add(getRandomWordsFromCache());
+            return result;
+        }
+
+        private String getRandomWordsFromCache() {
+            int index = random.nextInt(CACHE_SIZE);
+            if (index < cachedWord.size())
+                return cachedWord.get(index);
+            else {
+                index = random.nextInt(wordList.size());
+                String word = wordList.get(index);
+                // Check if cachedWord is non-full
+                if (cachedWord.size() < CACHE_SIZE)
+                    cachedWord.add(word);
+
+                // Since cachedWord is full, replace a random index value
+                else
+                    cachedWord.set(index % CACHE_SIZE, word);
+                return word;
+            }
+        }
     }
 
     @BeforeAll
