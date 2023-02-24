@@ -5,8 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.io.*;
+import java.util.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ItemTest {
@@ -22,6 +22,45 @@ class ItemTest {
     private static String[] strings;
     private static int[] randomArray;
     private static final String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    private static class Dictionary {
+        private static final int CACHE_SIZE = 1000;
+        private final Set<String> words;
+        private final List<String> wordList;
+        private final List<String> cachedWord;
+        private static Random random;
+
+        private Dictionary(String fileName) {
+            words = new HashSet<>();
+            wordList = new ArrayList<>();
+            cachedWord = new ArrayList<>();
+            random = new Random(0);
+            loadDictionary(fileName);
+        }
+
+        private void loadDictionary(String fileName) {
+            try (Reader reader = new FileReader(fileName);
+                 BufferedReader bufferedReader = new BufferedReader(reader)) {
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    String word = line.trim().toLowerCase();
+                    words.add(word);
+                    wordList.add(word);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        private boolean contains(String word) {
+            return words.contains(word.trim().toLowerCase());
+        }
+
+        private String getRandomWord() {
+            int index = random.nextInt(wordList.size());
+            return wordList.get(index);
+        }
+    }
 
     @BeforeAll
     public void setUp() {
@@ -152,4 +191,6 @@ class ItemTest {
             items[i] = item;
         }
     }
+
+
 }
