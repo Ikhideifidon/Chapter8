@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22612280-223e-49dc-8adc-28b69d40f589" name="Changes" comment="Chapter8">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/words_alpha.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/GeneralExercises.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/GeneralExercises.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/LinearSorting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/Ikhideifidon/ItemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": ""
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -58,7 +62,7 @@
       <recent name="com.github.Ikhideifidon" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ItemTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.Main" />
       <module name="Chapter8" />
@@ -83,22 +87,6 @@
       <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
       <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ItemTest.MSDSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chapter8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
-      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
-      <option name="METHOD_NAME" value="MSDSort" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,13 +123,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ItemTest.topKFrequentTreeSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chapter8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.Ikhideifidon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.Ikhideifidon" />
+      <option name="MAIN_CLASS_NAME" value="com.github.Ikhideifidon.ItemTest" />
+      <option name="METHOD_NAME" value="topKFrequentTreeSet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ItemTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ItemTest.MSDSort" />
-        <item itemvalue="JUnit.ItemTest.countingSort" />
+        <item itemvalue="JUnit.ItemTest" />
+        <item itemvalue="JUnit.ItemTest.topKFrequentTreeSet" />
         <item itemvalue="JUnit.ItemTest.keyIndexedCount" />
+        <item itemvalue="JUnit.ItemTest.countingSort" />
       </list>
     </recent_temporary>
   </component>
@@ -252,12 +256,35 @@
       <option name="project" value="LOCAL" />
       <updated>1677260991511</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Chapter8">
+      <created>1677262494057</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677262494057</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Chapter8" />
     <option name="LAST_COMMIT_MESSAGE" value="Chapter8" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/GeneralExercises.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/github/Ikhideifidon/GeneralExercises.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

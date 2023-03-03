@@ -222,6 +222,4 @@ public class LinearSorting {
     private static boolean greater(float first, float second) {
         return first > second;
     }
-
-
 }

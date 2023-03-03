@@ -16,7 +16,7 @@ class ItemTest {
     private static final int MAXIMUM_VARIABLE_STRING_LENGTH = 21;
     private static final int UPPER_BOUND = 20;
     private static final int LOWER_BOUND = 1;
-    private static final Random random = new Random(0);
+    private static final Random random = new Random();
     private static Item<String, Integer> item;
     private static Item<String, Integer>[] items;
     private static String[] strings;
@@ -35,7 +35,7 @@ class ItemTest {
             words = new HashSet<>();
             wordList = new ArrayList<>();
             cachedWord = new ArrayList<>();
-            random = new Random(0);
+            random = new Random();
             loadDictionary(fileName);
         }
 
@@ -174,9 +174,8 @@ class ItemTest {
     public void topKFrequentTreeSet() {
         List<String> list = dictionary.getRandomWords(5_000);
         String[] randomWords = list.toArray(new String[0]);
-        // Write a code that generates k values from the range of 1 to the number of unique
-        // words in list (inclusive)
-        System.out.println(GeneralExercises.topKFrequentTreeSet(randomWords, 100));
+        int k  = generateKValues(list);
+        System.out.println(GeneralExercises.topKFrequentTreeSet(randomWords, k));
 
     }
 
@@ -229,6 +228,13 @@ class ItemTest {
             item = new Item<>(key, value);                                      // Compare by value.
             items[i] = item;
         }
+    }
+
+    private static int generateKValues(List<String> list) {
+        Set<String> uniqueWordsInWordList = new HashSet<>(list);
+        final int upperLimit = uniqueWordsInWordList.size();
+        final int lowerLimit = 1;
+        return random.nextInt(upperLimit) + lowerLimit;
     }
 
 
