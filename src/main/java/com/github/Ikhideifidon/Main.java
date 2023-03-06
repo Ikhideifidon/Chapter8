@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -26,6 +28,12 @@ public class Main {
         float number = 453738.878F;
         DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
         System.out.println(DECIMAL_FORMAT.format(number));
+
+        int[] arr = {100,-23,-23,404,100,23,23,23,3,404};
+        System.out.println(GeneralExercises.minJumps(arr));
+
+        System.out.println(RegularExpressions.check("$2367"));
+
 
 
 

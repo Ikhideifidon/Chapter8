@@ -281,4 +281,46 @@ public class GeneralExercises {
         return word.matches("^\\$\\d+(\\.\\d{2})?$");
     }
 
+    public static int minJumps(int[] arr) {
+        if (arr == null) return 0;
+        int n = arr.length;
+        if (n <= 2)
+            return n <= 1 ? 0 : 1;
+
+        // Create an adjacency list
+        Map<Integer, List<Integer>> adjacent = new HashMap<>(n);
+        for (int i = 0; i < n; i++)
+            // If arr[i] is mapped to null, map it to new ArrayList<>() and add(i), otherwise just add(i).
+            adjacent.computeIfAbsent(arr[i], j -> new ArrayList<>()).add(i);
+
+        Deque<Integer> queue = new LinkedList<>();
+        queue.offer(0);
+        boolean[] visited = new boolean[n];
+        visited[0] = true;
+        int steps = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size-- > 0) {
+                //noinspection DataFlowIssue
+                int head = queue.poll();
+                if (head == n - 1)
+                    return steps;
+
+                // Neighbors of index head
+                List<Integer> neighbors = adjacent.get(arr[head]);
+                // Add neighbors obtained from permissible movements.
+                neighbors.add(head - 1);
+                neighbors.add(head + 1);
+                for (int j : neighbors) {
+                    if (j >= 0 && j < n && !visited[j]) {
+                        queue.offer(j);
+                        visited[j] = true;
+                    }
+                }
+                neighbors.clear();
+            }
+            steps++;
+        }
+        return steps;
+    }
 }
