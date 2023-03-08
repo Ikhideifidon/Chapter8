@@ -5,10 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -34,6 +33,22 @@ public class Main {
 
         System.out.println(RegularExpressions.check("$2367"));
 
+        int[] sample = {6,4,14,6,8,13,9,7,10,6,12};
+        int d = 2;
+        System.out.println(GeneralExercises.maxJumpsDynamicProgramming(sample, d));
+
+        String regex =  "you(?= \\$\\d{2}\\.\\d{1})";
+        String ss = "this book will cost you $45.60 only. Let me know if you still want to purchase it.";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(ss);
+        if (matcher.find())
+            System.out.println(matcher.group());
+
+
+        int[] nums = {1, -1, -2, 4, -7, 3};
+        int k = 2;
+        System.out.println(GeneralExercises.maxResult(nums, k));
 
 
 

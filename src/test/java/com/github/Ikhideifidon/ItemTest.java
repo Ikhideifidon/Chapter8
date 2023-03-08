@@ -179,6 +179,19 @@ class ItemTest {
 
     }
 
+    @Test
+    public void canReach() {
+        // Generate random variable-length strings of 0s and 1s and each must start with 0.
+        // Generate random integers from [1 : s.length()) for minJump and maxJump.
+        // minJump <= maxJump
+        // 2 <= s.length() <= 10^5
+        int upper = 1_000_00;
+        String s = generateRandomZeroesAndOnesStrings(upper);
+        int minJump = random.nextInt(upper - 1) + 1;
+        int maxJump = minJump + random.nextInt(upper - minJump);
+        System.out.println(GeneralExercises.canReach(s, minJump, maxJump));
+    }
+
     // Utility Methods
     // Generate an n-length array within a specific bound
     private static void generateArray(int[] A, int lowerBound, int upperBound) {
@@ -237,5 +250,12 @@ class ItemTest {
         return random.nextInt(upperLimit) + lowerLimit;
     }
 
-
+    private static String generateRandomZeroesAndOnesStrings(int upper) {
+        StringBuilder sb = new StringBuilder("0");
+        for (int i = 0; i < upper - 1; i++) {
+            int value = random.nextInt(2);
+            sb.append(value);
+        }
+        return sb.toString();
+    }
 }

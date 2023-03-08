@@ -323,4 +323,122 @@ public class GeneralExercises {
         }
         return steps;
     }
+
+    // 1340. Jump Game V
+    public static int maxJumpsGraph(int[] arr, int d) {
+        if (arr == null) return 0;
+        int n = arr.length;
+
+        if (n == 1) return 1;
+
+        // Create an adjacency list
+        //noinspection unchecked
+        List<Integer>[] adjacent = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adjacent[i] = new ArrayList<>();
+            for (int j = 1; j <= d && i + j < n && arr[i] > arr[i + j];  j++)
+                adjacent[i].add(i + j);
+
+            for (int j = 1; j <= d && i - j >= 0 && arr[i] > arr[i - j]; j++)
+                adjacent[i].add(i - j);
+        }
+
+        int[] memo = new int[n];
+        int max = 1;
+        int localMax;
+        for (int i = 0; i < n; i++) {
+            localMax = dfs(adjacent, i, memo);
+            max = Math.max(max, localMax);
+        }
+        return max;
+    }
+
+    private static int dfs(List<Integer>[] adjacent, int source, int[] memo) {
+        if (source == adjacent.length)
+            return 0;
+        if (memo[source] != 0)
+            return memo[source];
+
+        int path = 1;
+        for (int singleSource : adjacent[source])
+            path = Math.max(1 + dfs(adjacent, singleSource, memo), path);
+
+        memo[source] = path;
+        return path;
+    }
+
+    public static int maxJumpsDynamicProgramming(int[] arr, int d) {
+        if (arr == null) return 0;
+        int n = arr.length;
+        if (n == 1) return 1;
+
+        int[] dp = new int[n];
+        int result = 1;
+        for (int source = 0; source < n; source++)
+            result = Math.max(result, helper(arr, d, n, source, dp));
+        return result;
+    }
+
+    private static int helper(int[] arr, int d, int n, int i, int[] dp) {
+        if (dp[i] != 0)
+            return dp[i];
+
+        int result = 1;
+        for (int j = 1; j <= d && i + j < n && arr[i] > arr[i + j]; j++)
+            result = Math.max(result, 1 + helper(arr, d, n, i + j, dp));
+
+        for (int j = 1; j <= d && i - j >= 0 && arr[i] > arr[i - j]; j++)
+            result = Math.max(result, 1 + helper(arr, d, n, i - j, dp));
+
+        return dp[i] = result;
+    }
+
+    // Jump Game VII
+    public static boolean canReach(String s, int minJump, int maxJump) {
+        // s = "0110100010", minJump = 2, maxJump = 3
+        // Possible tree (using indices)
+        //                   0
+        //                    \
+        //                     3
+        //                    /  \
+        //                   5    6
+        //                  / \    \
+        //                 7   8    9
+
+        int n = s.length();
+        if (s.charAt(n - 1) != '0') return false;
+        Deque<Integer> queue = new LinkedList<>();
+        queue.offer(0);
+        int farthest = 0;
+        int i = 0;
+        while (!queue.isEmpty()) {
+            int index = queue.pop();
+            if (index == n - 1) return true;
+
+            // Compute jumps
+            for (int j = Math.max(farthest, index + minJump); j <= Math.min(index + maxJump, n - 1); j++) {
+                if (s.charAt(j) == '0')
+                    queue.offer(j);
+            }
+            farthest = (index + maxJump + 1);
+        }
+        return false;
+    }
+
+    public static int maxResult(int[]nums, int k) {
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp, Integer.MIN_VALUE);
+        dp[nums.length - 1] = nums[nums.length - 1];  // dp[n-1]=nums[n-1]
+        return solve(nums, dp, k, 0);
+    }
+    // recursive solver which finds max score to reach n-1 starting from ith index
+    private static int solve(int[]nums, int[]dp, int k, int i) {
+        if(dp[i] != Integer.MIN_VALUE) return dp[i];   // already calculated result for index i
+        int score = Integer.MIN_VALUE;
+        for(int j = 1; j <= k; j++)          // try jumps of all length and choose the one which maximises the score
+            if(i + j < nums.length)
+                score = Math.max(score, nums[i] + solve(nums, dp, k, i + j));
+        return dp[i] = score;
+    }
+
 }
